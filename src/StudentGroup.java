@@ -19,13 +19,20 @@ public class StudentGroup implements StudentArrayOperation {
 	 * DO NOT remove or change this constructor, it will be used during task check
 	 * @param length
 	 */
+	ArrayList<Student> s=new ArrayList<Student>(Arrays.aslist(studentsgrp));
+	int len;
 	public StudentGroup(int length) {
+		len=length;
 		this.students = new Student[length];
 	}
 
 	@Override
 	public Student[] getStudents() {
 		// Add your implementation here
+		for(Student stu:s)
+		{
+			System.out.println(stu.id+" "+stu.fullName+" "+stu.birthDate+" "+stu.avgMark);
+	        }
 		return null;
 	}
 
@@ -37,47 +44,69 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student getStudent(int index) {
 		// Add your implementation here
+		for(Student stu:s)
+		{
+			if(stu.id == index)
+			{
+				System.out.println(stu.id+" "+stu.fullName+" "+stu.birthDate+" "+stu.avgMark);
+			}
+		}
+
 		return null;
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
+		s.add(index,student);
 	}
 
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
+		s.add(0,student);
 	}
 
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
+		s.add(len-1,student);
 	}
 
 	@Override
 	public void add(Student student, int index) {
 		// Add your implementation here
+		s.add(index,student);
 	}
 
 	@Override
 	public void remove(int index) {
 		// Add your implementation here
+		s.remove(index);
 	}
 
 	@Override
 	public void remove(Student student) {
 		// Add your implementation here
+		s.remove(student);
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
 		// Add your implementation here
+		for(int i=0;i<len;i++)
+		{
+			if(i==index)
+			{
+				s.remove(i);
+			}
+		}
 	}
 
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
+		
 	}
 
 	@Override
@@ -93,17 +122,44 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
+		for(Student stu:s)
+		{
+			for(k=0;k<len;k++)
+			{
+			
+			for(int j=0;j<len-k-1;j++)
+		{
+			if(a[i]>a[i+1])
+			{
+				temp=a[i];
+				a[i]=a[i+1];
+				a[i+1]=temp;
+			}
+		}
+	}
 	}
 
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
+		for(Student stu:s)
+		{
+			if(stu.bithDate == date)
+				System.out.println(stu.id+" "+stu.fullName+" "+stu.birthDate+" "+stu.avgMark);
+		}
 		return null;
 	}
 
 	@Override
 	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
 		// Add your implementation here
+		for(Student stu:s)
+		{
+			if(s.bithDate>firstDate && s.bithDate<lastDate)
+			{
+				System.out.println(stu.id+" "+stu.fullName+" "+stu.birthDate+" "+stu.avgMark);
+			}
+		}
 		return null;
 	}
 
